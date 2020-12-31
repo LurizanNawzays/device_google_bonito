@@ -35,11 +35,11 @@ PRODUCT_MANUFACTURER := Google
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="bonito" \
-    PRIVATE_BUILD_DESC="bonito-user 11 RP1A.201105.002 6869500 release-keys"
+    PRIVATE_BUILD_DESC="bonito-user 11 RQ1A.201205.003 6906706 release-keys"
 
-BUILD_FINGERPRINT := "google/bonito/bonito:11/RP1A.201105.002/6869500:user/release-keys"
+BUILD_FINGERPRINT := "google/bonito/bonito:11/RQ1A.201205.003/6906706:user/release-keys"
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/bonito/bonito:11/RP1A.201105.002/6869500:user/release-keys
+    ro.build.fingerprint=google/bonito/bonito:11/RQ1A.201205.003/6906706:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/bonito/bonito-vendor.mk)
