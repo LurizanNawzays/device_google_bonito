@@ -963,3 +963,7 @@ PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
     PresencePolling \
     RcsService
+
+# Data (CAF)
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/dataservices \
