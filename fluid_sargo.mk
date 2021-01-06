@@ -1,4 +1,4 @@
- # Copyright (C) 2020 The ExtendedUI Project
+ # Copyright (C) 2021 AOSP
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit some common ExtendedUI stuff.
-$(call inherit-product, vendor/exui/config/common.mk)
+# Inherit some common Fluid stuff.
+$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/bonito/aosp_sargo.mk)
@@ -24,10 +24,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Device specific stuff
 TARGET_BOOT_ANIMATION_RES := 1080
-USE_GAPPS := true
-EXUI_BUILDTYPE := OFFICIAL
+PRODUCT_GMS_CLIENTID_BASE := android-google
+IS_PHONE := true
+TARGET_INCLUDE_GAPPS := true
 
-PRODUCT_NAME := exui_sargo
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.fluid.maintainer=KSHMR \
+  ro.fluid.cpu=SDM670 \
+  ro.product.system.model=sargo
+
+PRODUCT_NAME := fluid_sargo
 PRODUCT_DEVICE := sargo
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 3a
@@ -35,11 +41,11 @@ PRODUCT_MANUFACTURER := Google
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="sargo" \
-    PRIVATE_BUILD_DESC="sargo-user 11 RQ1A.201205.003 6906706 release-keys"
+    PRIVATE_BUILD_DESC="sargo-user 11 RQ1A.210105.002 6985033 release-keys"
 
-BUILD_FINGERPRINT := "google/sargo/sargo:11/RQ1A.201205.003/6906706:user/release-keys"
+BUILD_FINGERPRINT := "google/sargo/sargo:11/RQ1A.210105.002/6985033:user/release-keys"
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/sargo/sargo:11/RQ1A.201205.003/6906706:user/release-keys
+    ro.build.fingerprint=google/sargo/sargo:11/RQ1A.210105.002/6985033:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sargo/sargo-vendor.mk)
