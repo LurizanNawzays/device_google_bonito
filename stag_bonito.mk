@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit some common Fluid stuff.
-$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
+# Inherit some common Stag stuff.
+$(call inherit-product, vendor/stag/main.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/bonito/aosp_bonito.mk)
@@ -23,17 +23,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Device specific stuff
-TARGET_BOOT_ANIMATION_RES := 1080
-PRODUCT_GMS_CLIENTID_BASE := android-google
-IS_PHONE := true
-TARGET_INCLUDE_GAPPS := true
+WITH_GAPPS := true
+BUILD_TYPE := OFFICIAL
 
-PRODUCT_PRODUCT_PROPERTIES += \
-  ro.fluid.maintainer=KSHMR \
-  ro.fluid.cpu=SDM670 \
-  ro.product.system.model=bonito
-
-PRODUCT_NAME := fluid_bonito
+PRODUCT_NAME := stag_bonito
 PRODUCT_DEVICE := bonito
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 3a XL
