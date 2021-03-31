@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/stag_bonito.mk \
-    $(LOCAL_DIR)/stag_sargo.mk \
+    $(LOCAL_DIR)/evolution_bonito.mk \
+    $(LOCAL_DIR)/evolution_sargo.mk \
     $(LOCAL_DIR)/aosp_bonito.mk \
     $(LOCAL_DIR)/aosp_sargo.mk \
     $(LOCAL_DIR)/aosp_bonito_hwasan.mk \

@@ -1,4 +1,4 @@
-# Copyright (C) 2021 AOSP
+ # Copyright (C) 2021 AOSP
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,33 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit some common Stag stuff.
-$(call inherit-product, vendor/stag/main.mk)
-
 # Inherit from those products. Most specific first.
-$(call inherit-product, device/google/bonito/aosp_bonito.mk)
+$(call inherit-product, device/google/bonito/aosp_sargo.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Device specific stuff
-WITH_GAPPS := true
-BUILD_TYPE := OFFICIAL
+# Inherit some common Evolution X stuff.
+TARGET_GAPPS_ARCH := arm64
+TARGET_BOOT_ANIMATION_RES := 1080
+$(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
-PRODUCT_NAME := stag_bonito
-PRODUCT_DEVICE := bonito
+PRODUCT_NAME := evolution_sargo
+PRODUCT_DEVICE := sargo
 PRODUCT_BRAND := google
-PRODUCT_MODEL := Pixel 3a XL
+PRODUCT_MODEL := Pixel 3a
 PRODUCT_MANUFACTURER := Google
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="bonito" \
-    PRIVATE_BUILD_DESC="bonito-user 11 RQ2A.210305.006 7119741 release-keys"
+    PRODUCT_NAME="sargo" \
+    PRIVATE_BUILD_DESC="sargo-user 11 RQ2A.210305.006 7119741 release-keys"
 
-BUILD_FINGERPRINT := "google/bonito/bonito:11/RQ2A.210305.006/7119741:user/release-keys"
+BUILD_FINGERPRINT := "google/sargo/sargo:11/RQ2A.210305.006/7119741:user/release-keys"
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/bonito/bonito:11/RQ2A.210305.006/7119741:user/release-keys
+    ro.build.fingerprint=google/sargo/sargo:11/RQ2A.210305.006/7119741:user/release-keys
 
-$(call inherit-product-if-exists, vendor/google/bonito/bonito-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/sargo/sargo-vendor.mk)
